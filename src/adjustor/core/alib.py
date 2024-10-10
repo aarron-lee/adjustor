@@ -31,6 +31,7 @@ def alib(
     limit: Limit = "device",
     dev: dict[str, D] = {},
 ):
+    return True
     length = 2
     data = bytearray()
     info = f"Sending SMU command with {len(params)} parameters:"

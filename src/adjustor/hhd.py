@@ -16,14 +16,11 @@ from .i18n import _
 
 logger = logging.getLogger(__name__)
 
-CONFLICTING_PLUGINS = {
-    "SimpleDeckyTDP": "~/homebrew/plugins/SimpleDeckyTDP",
-    "PowerControl": "~/homebrew/plugins/PowerControl",
-}
+CONFLICTING_PLUGINS = {}
 
 
 class AdjustorInitPlugin(HHDPlugin):
-    def __init__(self, use_acpi_call: bool = True) -> None:
+    def __init__(self, use_acpi_call: bool = False) -> None:
         self.name = f"adjustor_init"
         self.priority = 5
         self.log = "adji"
