@@ -15,6 +15,7 @@ def get_platform_choices():
 
 
 def set_platform_profile(prof: str):
+    return False
     try:
         logger.info(f"Setting platform profile to '{prof}'")
         with open("/sys/firmware/acpi/platform_profile", "w") as f:

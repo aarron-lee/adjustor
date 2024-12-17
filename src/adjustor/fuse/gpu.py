@@ -104,6 +104,7 @@ def get_igpu_status():
 
 
 def set_gpu_auto():
+    return False
     logger.info("Setting GPU mode to 'auto'.")
     hwmon = find_igpu()
     if not hwmon:
@@ -113,6 +114,7 @@ def set_gpu_auto():
 
 
 def set_gpu_manual(min_freq: int, max_freq: int | None = None):
+    return False
     if max_freq is None:
         max_freq = min_freq
 
@@ -138,6 +140,7 @@ def is_in_cpu0(fn: str):
 
 
 def set_per_cpu(fn: str, value: str):
+    return False
     for dir in os.listdir(CPU_PATH):
         if not dir.startswith(CPU_PREFIX):
             continue
@@ -151,6 +154,7 @@ def set_per_cpu(fn: str, value: str):
 
 
 def set_cpu_boost(enable: bool):
+    return False
     logger.info(f"{'Enabling' if enable else 'Disabling'} CPU boost.")
     if os.path.exists(CPU_BOOST_PATH):
         try:
@@ -164,11 +168,13 @@ def set_cpu_boost(enable: bool):
 
 
 def set_epp_mode(mode: EppStatus):
+    return False
     logger.info(f"Setting EPP mode to '{mode}'.")
     set_per_cpu(EPP_FN, mode)
 
 
 def set_powersave_governor():
+    return False
     logger.info("Setting CPU governor to 'powersave'.")
     set_per_cpu(GOVERNOR_FN, "powersave")
 
@@ -178,6 +184,7 @@ def can_use_nonlinear():
 
 
 def set_frequency_scaling(nonlinear: bool):
+    return False
     if nonlinear:
         min_freq = read_from_cpu0(CPU_FREQ_NONLINEAR_MIN_FN)
     else:

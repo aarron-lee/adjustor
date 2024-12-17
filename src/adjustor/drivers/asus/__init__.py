@@ -66,6 +66,7 @@ def set_charge_limit(lim: int):
 
 
 def set_tdp(pretty: str, fn: str, val: int):
+    return False
     logger.info(f"Setting tdp value '{pretty}' to {val} by writing to:\n{fn}")
     try:
         with open(fn, "w") as f:

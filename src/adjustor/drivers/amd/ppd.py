@@ -157,21 +157,21 @@ def create_interface(legacy: bool):
 
 if __name__ == "__main__":
     mainloop = None
-    try:
-        dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+    # try:
+    #     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
-        # set sys.stdin non-blocking
-        orig_fl = fcntl.fcntl(sys.stdin, fcntl.F_GETFL)
-        fcntl.fcntl(sys.stdin, fcntl.F_SETFL, orig_fl | os.O_NONBLOCK)
+    #     # set sys.stdin non-blocking
+    #     orig_fl = fcntl.fcntl(sys.stdin, fcntl.F_GETFL)
+    #     fcntl.fcntl(sys.stdin, fcntl.F_SETFL, orig_fl | os.O_NONBLOCK)
 
-        legacy = True
-        session_bus = dbus.SystemBus()
-        name = dbus.service.BusName(iface(legacy), session_bus)
-        object = create_interface(legacy)(session_bus)
+    #     legacy = True
+    #     session_bus = dbus.SystemBus()
+    #     name = dbus.service.BusName(iface(legacy), session_bus)
+    #     object = create_interface(legacy)(session_bus)
 
-        GLib.timeout_add(100, object.update_profile)
-        mainloop = GLib.MainLoop()
-        mainloop.run()
-    except KeyboardInterrupt:
-        if mainloop:
-            mainloop.quit()
+    #     GLib.timeout_add(100, object.update_profile)
+    #     mainloop = GLib.MainLoop()
+    #     mainloop.run()
+    # except KeyboardInterrupt:
+    #     if mainloop:
+    #         mainloop.quit()
