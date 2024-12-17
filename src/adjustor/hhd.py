@@ -16,10 +16,7 @@ from .i18n import _
 
 logger = logging.getLogger(__name__)
 
-CONFLICTING_PLUGINS = {
-    "SimpleDeckyTDP": "~/homebrew/plugins/SimpleDeckyTDP",
-    "PowerControl": "~/homebrew/plugins/PowerControl",
-}
+CONFLICTING_PLUGINS = {}
 
 
 class AdjustorInitPlugin(HHDPlugin):
