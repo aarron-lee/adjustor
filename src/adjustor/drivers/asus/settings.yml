@@ -4,60 +4,6 @@ tags: [hide-title]
 hint: >-
   Uses the interface of Armory Crate to set the TDP of the device.
 children:
-  tdp_v2:
-    type: mode
-    title: TDP Mode
-    default: balanced
-    modes:
-      quiet:
-        type: container
-        title: Silent
-        unit: 
-      balanced:
-        type: container
-        title: Performance
-        unit: 
-      performance:
-        type: container
-        title: Turbo
-        unit: 
-      custom:
-        type: container
-        title: Custom
-        unit: → 25/30W
-        children:
-          tdp:
-            type: int
-            title: TDP
-            hint: >-
-              Average TDP Target.
-              TDP Boost is recommended for desktop use and does not affect gaming.
-
-            min: 0
-            max: 30
-            step: 1
-            default: 30
-            unit: W
-          boost:
-            type: bool
-            title: TDP Boost
-            default: True
-            hint: >-
-              Allows the device to temporarily boost by setting appropriate slow and fast TDPs.
-  
-  sys_tdp:
-    type: display
-    title: " "
-    tags: []
-
-  cycle_tdp:
-    type: bool
-    title: Change TDP with View+Y
-    tags: [ non-essential ]
-    hint: >-
-      Allows you to cycle through TDP modes with the View+Y key combination.
-      Recommended to use with ROG Swap, as the View button will be muted to games.
-    default: False
 
   fan:
     type: mode
@@ -143,16 +89,3 @@ children:
       p95: 95%
       disabled: Unset
     default: disabled
-
-  extreme_standby:
-    type: multiple
-    title: Extreme Standby Mode
-    tags: [ non-essential, ordinal ]
-    options:
-      disabled: Disabled
-      enabled: Enabled
-    default: disabled
-    hint: >-
-      Lowers the power consumption of the device from 4% to 1% overnight.
-      Active only on battery. Turns off the power light and the controller 
-      requires longer to wake up.

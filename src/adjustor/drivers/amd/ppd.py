@@ -156,6 +156,7 @@ def create_interface(legacy: bool):
 
 
 if __name__ == "__main__":
+    return
     mainloop = None
     try:
         dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
