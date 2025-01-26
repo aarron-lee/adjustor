@@ -223,9 +223,6 @@ def fan_pwm_tester(normal_curve: bool = True, observe_only: bool = False):
             print(
                 f"  Current: {state['v_curr']*100:.1f}%, Target: {state['v_target']*100:.1f}%"
             )
-            print(
-                f"  Fan speeds: {' '.join(map(lambda rpm: f"{rpm:4d}rpm/{MAX_FAN}rpm ({100*rpm/MAX_FAN:.1f}%)", state['v_rpm']))}"
-            )
             time.sleep(SETPOINT_UPDATE_T if in_setpoint else UPDATE_T)
     except KeyboardInterrupt:
         print("Exiting fan test.")
